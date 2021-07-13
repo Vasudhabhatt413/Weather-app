@@ -1,0 +1,35 @@
+<div class="container mt-8 ">
+    <div class="row justify-content-center  ">
+        <div class="col-md-6  my-4">
+            <div class="card bg-secondary border border-dark rounded  shadow p-3 mb-5 ">
+                <div class="row justify-content-center mt-3">
+                    <input type="text" [(ngModel)]="cityName" placeholder=" Type City Name.." class="form-control w-50">
+                </div> 
+                <div class="row justify-content-center mt-5 mb-5  p-2">
+                    <div class="col-md-8 text-center">
+                        <button class="btn btn-lg btn-outline-dark " (click)="fetchWeather()">Fetch Details</button>
+                        
+                    </div>
+                    <div class="col-md-8 text-center mt-3">
+                        <button class="btn btn-lg btn-outline-dark " (click)="reset()">Reset</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="row justify-content-center mt-3 mb-3  p-2">
+                    <div class="col-md-8 text-center">
+                        <h3>Weather Details of {{data['name']}}</h3>
+                        <div class="card bg-muted shadow p-3 mb-5 bg-white rounded" *ngIf="data">
+                            <p>Latitude : {{data['coord']['lat']}} | Longitude : {{data['coord']['lon']}}</p>
+                            <p>Sunrise : {{data['sys']['sunrise'] | date: 'longTime'}}  </p>
+                            <p>Sunset : {{data['sys']['sunset'] | date: 'longTime'}}</p>
+                            <p>Wind Speed : {{data['wind']['speed']}}m/s</p>
+                            <p>Temperature: {{data['main']['temp']}}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
